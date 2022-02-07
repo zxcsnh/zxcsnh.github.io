@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>泉方泽的温馨小屋</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-10-23T15:57:21.081Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>泉方泽</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新世界</title>
+    <link href="http://example.com/2021/10/23/%E6%96%B0%E4%B8%96%E7%95%8C/"/>
+    <id>http://example.com/2021/10/23/%E6%96%B0%E4%B8%96%E7%95%8C/</id>
+    <published>2021-10-23T15:53:12.000Z</published>
+    <updated>2021-10-23T15:57:21.081Z</updated>
+    
+    <content type="html"><![CDATA[<p>​     我的一小步，也是我的一大步。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;​     我的一小步，也是我的一大步。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="111" scheme="http://example.com/tags/111/"/>
+    
+  </entry>
+  
+</feed>
