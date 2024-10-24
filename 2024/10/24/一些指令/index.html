@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>常用指令 | Hexo</title><meta name="author" content="Neo"><meta name="copyright" content="Neo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MySQL启动指令12net start MySQL80net stop MySQL80  MySQL连接指令1mysql -u root -p root">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用指令">
+<meta property="og:url" content="http://example.com/2024/10/24/%E4%B8%80%E4%BA%9B%E6%8C%87%E4%BB%A4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MySQL启动指令12net start MySQL80net stop MySQL80  MySQL连接指令1mysql -u root -p root">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2024-10-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-24T07:42:19.655Z">
+<meta property="article:author" content="Neo">
+<meta property="article:tag" content="命令">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/logo.jpg"><link rel="canonical" href="http://example.com/2024/10/24/%E4%B8%80%E4%BA%9B%E6%8C%87%E4%BB%A4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '常用指令',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-24 15:42:19'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/background.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">常用指令</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">常用指令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-24T07:42:19.655Z" title="更新于 2024-10-24 15:42:19">2024-10-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/utils/">utils</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="MySQL启动指令"><a href="#MySQL启动指令" class="headerlink" title="MySQL启动指令"></a>MySQL启动指令</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net <span class="built_in">start</span> MySQL80</span><br><span class="line">net stop MySQL80</span><br></pre></td></tr></table></figure>
+
+<h3 id="MySQL连接指令"><a href="#MySQL连接指令" class="headerlink" title="MySQL连接指令"></a>MySQL连接指令</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="literal">-u</span> root <span class="literal">-p</span> root</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="Ubuntu24-04指令"><a href="#Ubuntu24-04指令" class="headerlink" title="Ubuntu24.04指令"></a>Ubuntu24.04指令</h2><h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37344125/article/details/138841559">https://blog.csdn.net/qq_37344125/article/details/138841559</a></p>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="Docker换源"><a href="#Docker换源" class="headerlink" title="Docker换源"></a>Docker换源</h3><h3 id="Docker-search"><a href="#Docker-search" class="headerlink" title="Docker search"></a>Docker search</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search [OPTIONS] TERM</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>TERM</code></strong>: 要搜索的关键字。</li>
+</ul>
+<p>常用选项：</p>
+<ul>
+<li>**–automated :**只列出 automated build类型的镜像；</li>
+<li>**–no-trunc :**显示完整的镜像描述；</li>
+<li>**-f &lt;过滤条件&gt;:**列出收藏数不小于指定值的镜像。</li>
+</ul>
+<h3 id="Docker运行"><a href="#Docker运行" class="headerlink" title="Docker运行"></a>Docker运行</h3><p>要在Docker中运行容器，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</span><br></pre></td></tr></table></figure>
+
+<p>• docker run：运行容器的命令。<br>• [OPTIONS]：可选参数，用于配置容器的各种选项，如端口映射、容器名称等。<br>• IMAGE：要运行的镜像名称或ID。<br>• [COMMAND] [ARG…]：可选的命令和参数，用于在容器内执行特定的命令。</p>
+<h3 id="Docker构建"><a href="#Docker构建" class="headerlink" title="Docker构建"></a>Docker构建</h3><p>要构建自己的Docker镜像，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build [OPTIONS] PATH | URL | -</span><br></pre></td></tr></table></figure>
+
+<p>• docker build：构建镜像的命令。<br>• [OPTIONS]：可选参数，用于配置构建过程，如镜像标签、构建上下文路径等。<br>• PATH | URL | -：Dockerfile所在的路径、URL或者使用标准输入作为Dockerfile。</p>
+<h3 id="Docker-pull"><a href="#Docker-pull" class="headerlink" title="Docker pull"></a>Docker pull</h3><p>要从Docker仓库中拉取现有的镜像，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [OPTIONS] NAME[:TAG|@DIGEST]</span><br></pre></td></tr></table></figure>
+
+<p>• docker pull：拉取镜像的命令。<br>• [OPTIONS]：可选参数，用于配置拉取过程，如认证信息等。<br>• NAME[:TAG|@DIGEST]：要拉取的镜像名称、标签或摘要。</p>
+<h3 id="Docker-push"><a href="#Docker-push" class="headerlink" title="Docker push"></a>Docker push</h3><p>要将本地的镜像推送到Docker仓库，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push [OPTIONS] NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
+<p>• docker push：推送镜像的命令。<br>• [OPTIONS]：可选参数，用于配置推送过程，如认证信息等。<br>• NAME[:TAG]：要推送的镜像名称和标签。</p>
+<h3 id="Docker-images"><a href="#Docker-images" class="headerlink" title="Docker images"></a>Docker images</h3><p>要列出本地所有的镜像，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images [OPTIONS] [REPOSITORY[:TAG]]</span><br></pre></td></tr></table></figure>
+
+<p>• docker images：列出镜像的命令。<br>• [OPTIONS]：可选参数，用于配置输出结果的格式等。<br>• [REPOSITORY[:TAG]]：可选的镜像名称和标签，用于过滤输出结果。</p>
+<h3 id="Docker-ps"><a href="#Docker-ps" class="headerlink" title="Docker ps"></a>Docker ps</h3><p>要列出正在运行的容器，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps [OPTIONS]</span><br></pre></td></tr></table></figure>
+
+<p>• docker ps：列出容器的命令。<br>• [OPTIONS]：可选参数，用于配置输出结果的格式和过滤条件。</p>
+<h3 id="Docker-stop"><a href="#Docker-stop" class="headerlink" title="Docker stop"></a>Docker stop</h3><p>要停止正在运行的容器，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<p>• docker stop：停止容器的命令。<br>• [OPTIONS]：可选参数，用于配置停止过程，如超时时间等。<br>• CONTAINER [CONTAINER…]：要停止的容器名称或ID。</p>
+<h3 id="Docker-start"><a href="#Docker-start" class="headerlink" title="Docker start"></a>Docker start</h3><p>要启动已停止的容器，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<p>• docker start：启动容器的命令。<br>• [OPTIONS]：可选参数，用于配置启动过程，如守护模式等。<br>• CONTAINER [CONTAINER…]：要启动的容器名称或ID。</p>
+<h3 id="Docker-restart"><a href="#Docker-restart" class="headerlink" title="Docker restart"></a>Docker restart</h3><p>要重启正在运行的容器，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<p>• docker restart：重启容器的命令。<br>• [OPTIONS]：可选参数，用于配置重启过程，如超时时间等。<br>• CONTAINER [CONTAINER…]：要重启的容器名称或ID。</p>
+<h3 id="Docker-kill"><a href="#Docker-kill" class="headerlink" title="Docker kill"></a>Docker kill</h3><p>要强制终止正在运行的容器，可以使用以下命令：<br>docker kill [OPTIONS] CONTAINER [CONTAINER…]<br>• docker kill：终止容器的命令。<br>• [OPTIONS]：可选参数，用于配置终止过程，如信号等。<br>• CONTAINER [CONTAINER…]：要终止的容器名称或ID。</p>
+<h3 id="Docker-rm-docker-rmi"><a href="#Docker-rm-docker-rmi" class="headerlink" title="Docker rm&#x2F;docker rmi"></a>Docker rm&#x2F;docker rmi</h3><p>要删除已停止的容器或镜像，可以使用以下命令：<br>docker rm [OPTIONS] CONTAINER [CONTAINER…]   docker rmi [OPTIONS] IMAGE [IMAGE…]<br>• docker rm：删除容器的命令。<br>• docker rmi：删除镜像的命令。<br>• [OPTIONS]：可选参数，用于配置删除过程，如强制删除等。<br>• CONTAINER [CONTAINER…]：要删除的容器名称或ID。<br>• IMAGE [IMAGE…]：要删除的镜像名称或ID。</p>
+<h3 id="Docker-exec"><a href="#Docker-exec" class="headerlink" title="Docker exec"></a>Docker exec</h3><p>要在运行中的容器内执行命令，可以使用以下命令：<br>docker exec [OPTIONS] CONTAINER COMMAND [ARG…]<br>• docker exec：在容器内执行命令的命令。<br>• [OPTIONS]：可选参数，用于配置执行过程，如进入交互模式等。<br>• CONTAINER：要执行命令的容器名称或ID。<br>• COMMAND [ARG…]：要在容器内执行的命令及其参数。</p>
+<h3 id="Docker-logs"><a href="#Docker-logs" class="headerlink" title="Docker logs"></a>Docker logs</h3><p>要查看容器的日志输出，可以使用以下命令：<br>docker logs [OPTIONS] CONTAINER<br>• docker logs：查看容器日志的命令。<br>• [OPTIONS]：可选参数，用于配置输出结果，如时间戳等。<br>• CONTAINER：要查看日志的容器名称或ID。</p>
+<h3 id="Docker-inspect"><a href="#Docker-inspect" class="headerlink" title="Docker inspect"></a>Docker inspect</h3><p>要获取容器或镜像的详细信息，可以使用以下命令：<br>docker inspect [OPTIONS] NAME|ID [NAME|ID…]<br>• docker inspect：获取详细信息的命令。<br>• [OPTIONS]：可选参数，用于配置输出结果的格式等。<br>• NAME|ID [NAME|ID…]：要获取信息的容器或镜像的名称或ID。</p>
+<h3 id="Docker-cp"><a href="#Docker-cp" class="headerlink" title="Docker cp"></a>Docker cp</h3><p>要在容器和主机之间复制文件或目录，可以使用以下命令：<br>docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH   docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH<br>• docker cp：复制文件或目录的命令。<br>• [OPTIONS]：可选参数，用于配置复制过程，如权限等。<br>• CONTAINER:SRC_PATH：源路径，其中CONTAINER是容器名称或ID。<br>• DEST_PATH：目标路径，其中DEST_PATH是主机路径。<br>• SRC_PATH|-：源路径，其中-表示从标准输入读取。</p>
+<h3 id="Docker-system-prune"><a href="#Docker-system-prune" class="headerlink" title="Docker system prune"></a>Docker system prune</h3><p>要清理不再使用的镜像、容器和其他资源，可以使用以下命令：<br>docker system prune [OPTIONS]<br>• docker system prune：清理资源的命令。<br>• [OPTIONS]：可选参数，用于配置清理过程，如强制删除等。</p>
+<h3 id="Docker-network"><a href="#Docker-network" class="headerlink" title="Docker network"></a>Docker network</h3><p>Docker网络允许容器之间进行通信和连接到外部网络。以下是一些与Docker网络相关的常用命令：<br>• docker network ls：列出所有的Docker网络。<br>• docker network create：创建一个新的Docker网络。<br>• docker network connect：将容器连接到指定的Docker网络。<br>• docker network disconnect：将容器从指定的Docker网络断开连接。</p>
+<h3 id="Docker-volume"><a href="#Docker-volume" class="headerlink" title="Docker volume"></a>Docker volume</h3><p>Docker卷用于在容器和主机之间持久化存储数据。以下是一些与Docker卷相关的常用命令：<br>• docker volume ls：列出所有的Docker卷。<br>• docker volume create：创建一个新的Docker卷。<br>• docker volume inspect：获取Docker卷的详细信息。<br>• docker volume rm：删除指定的Docker卷。</p>
+<h3 id="Docker-compose"><a href="#Docker-compose" class="headerlink" title="Docker-compose"></a>Docker-compose</h3><p>Docker-compose是一个用于定义和运行多个容器应用程序的工具。它使用YAML文件来配置应用程序的服务、网络和卷等。以下是一些与Docker-compose相关的常用命令：<br>• docker-compose up：构建并启动Docker-compose定义的所有服务。<br>• docker-compose down：停止并删除Docker-compose定义的所有服务。<br>• docker-compose build：构建Docker-compose定义的所有服务的镜像。<br>• docker-compose logs：查看Docker-compose定义的所有服务的日志。</p>
+<h3 id="Docker-swarm"><a href="#Docker-swarm" class="headerlink" title="Docker swarm"></a>Docker swarm</h3><p>Docker swarm是Docker的原生集群管理和编排工具，用于在多个Docker主机上运行和管理应用程序。以下是一些与Docker swarm相关的常用命令：<br>• docker swarm init：初始化一个新的Docker swarm集群。<br>• docker swarm join：将节点加入到Docker swarm集群。<br>• docker node ls：列出Docker swarm集群中的所有节点。<br>• docker service：管理在Docker swarm集群中运行的服务。</p>
+<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><p>Dockerfile是用于定义Docker镜像构建过程的文本文件。它包含一系列的指令和配置，用于指导Docker引擎在构建过程中执行特定的操作。以下是一些与Dockerfile相关的常用命令：<br>• FROM：指定基础镜像。<br>• RUN：在容器内执行命令。<br>• COPY：将文件或目录从主机复制到容器内。<br>• ADD：将文件或目录从主机复制到容器内，并支持URL和解压缩操作。<br>• WORKDIR：设置工作目录。<br>• EXPOSE：声明容器运行时监听的端口。<br>• CMD：指定容器启动时要执行的命令。<br>这些命令可以在Dockerfile中按照特定的顺序组合使用，以定义和构建自定义的Docker镜像。</p>
+<h3 id="Docker登录和认证"><a href="#Docker登录和认证" class="headerlink" title="Docker登录和认证"></a>Docker登录和认证</h3><p>要登录到Docker仓库或私有镜像仓库，可以使用以下命令：<br>• docker login：登录到Docker仓库。<br>• docker logout：退出登录。<br>登录后，您可以使用docker pull和docker push命令来拉取和推送镜像。</p>
+<h3 id="Docker容器日志管理"><a href="#Docker容器日志管理" class="headerlink" title="Docker容器日志管理"></a>Docker容器日志管理</h3><p>除了使用docker logs命令查看容器日志外，还可以使用以下命令对容器日志进行管理：<br>• docker logs –tail：只显示最后几行的日志。<br>• docker logs –follow：实时跟踪容器的日志输出。<br>• docker logs –since：只显示特定时间之后的日志。<br>• docker logs –until：只显示特定时间之前的日志。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Neo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/10/24/%E4%B8%80%E4%BA%9B%E6%8C%87%E4%BB%A4/">http://example.com/2024/10/24/%E4%B8%80%E4%BA%9B%E6%8C%87%E4%BB%A4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%91%BD%E4%BB%A4/">命令</a></div><div class="post-share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/10/24/sql%E6%B3%A8%E5%85%A5/" title="SQL注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">SQL注入</div></div><div class="info-2"><div class="info-item-1">常用字段1234567group_concat() #--concat() #--table_schema #--information_schema.tables #--information_schema.columns #--table_name #--column_name #--    普通注入需要根据实际考虑是否需要闭合单引号或双引号 基础注入万能密码 1or 1=1 #--  基础注入实例 123456or 1=1 union/ select 1,concat(table_name),3 from information_schema.tables where table_schema=database()#--#获取表明or 1=1 union select 1,concat(column_name),3 from information_schema.columns where table_schema=database() AND table_name=&#x27;flag&#x27;#--#获取列名or 1=1 union select...</div></div></div></a><a class="pagination-related" href="/2024/10/24/%E8%8F%9C%E9%B8%9F%E6%9D%AFweb/" title="菜鸟杯-Web"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">菜鸟杯-Web</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Neo</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E5%90%AF%E5%8A%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">MySQL启动指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E8%BF%9E%E6%8E%A5%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">MySQL连接指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu24-04%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">Ubuntu24.04指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%A2%E6%BA%90"><span class="toc-number">2.1.</span> <span class="toc-text">换源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker"><span class="toc-number">3.</span> <span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker%E6%8D%A2%E6%BA%90"><span class="toc-number">3.1.</span> <span class="toc-text">Docker换源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-search"><span class="toc-number">3.2.</span> <span class="toc-text">Docker search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker%E8%BF%90%E8%A1%8C"><span class="toc-number">3.3.</span> <span class="toc-text">Docker运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker%E6%9E%84%E5%BB%BA"><span class="toc-number">3.4.</span> <span class="toc-text">Docker构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-pull"><span class="toc-number">3.5.</span> <span class="toc-text">Docker pull</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-push"><span class="toc-number">3.6.</span> <span class="toc-text">Docker push</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-images"><span class="toc-number">3.7.</span> <span class="toc-text">Docker images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-ps"><span class="toc-number">3.8.</span> <span class="toc-text">Docker ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-stop"><span class="toc-number">3.9.</span> <span class="toc-text">Docker stop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-start"><span class="toc-number">3.10.</span> <span class="toc-text">Docker start</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-restart"><span class="toc-number">3.11.</span> <span class="toc-text">Docker restart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-kill"><span class="toc-number">3.12.</span> <span class="toc-text">Docker kill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-rm-docker-rmi"><span class="toc-number">3.13.</span> <span class="toc-text">Docker rm&#x2F;docker rmi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-exec"><span class="toc-number">3.14.</span> <span class="toc-text">Docker exec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-logs"><span class="toc-number">3.15.</span> <span class="toc-text">Docker logs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-inspect"><span class="toc-number">3.16.</span> <span class="toc-text">Docker inspect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-cp"><span class="toc-number">3.17.</span> <span class="toc-text">Docker cp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-system-prune"><span class="toc-number">3.18.</span> <span class="toc-text">Docker system prune</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-network"><span class="toc-number">3.19.</span> <span class="toc-text">Docker network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-volume"><span class="toc-number">3.20.</span> <span class="toc-text">Docker volume</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-compose"><span class="toc-number">3.21.</span> <span class="toc-text">Docker-compose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-swarm"><span class="toc-number">3.22.</span> <span class="toc-text">Docker swarm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dockerfile"><span class="toc-number">3.23.</span> <span class="toc-text">Dockerfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker%E7%99%BB%E5%BD%95%E5%92%8C%E8%AE%A4%E8%AF%81"><span class="toc-number">3.24.</span> <span class="toc-text">Docker登录和认证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86"><span class="toc-number">3.25.</span> <span class="toc-text">Docker容器日志管理</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/MISC/" title="MISC">MISC</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/PHP%E7%89%B9%E6%80%A7/" title="PHP特性">PHP特性</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/sql%E6%B3%A8%E5%85%A5/" title="SQL注入">SQL注入</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/%E4%B8%80%E4%BA%9B%E6%8C%87%E4%BB%A4/" title="常用指令">常用指令</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/%E8%8F%9C%E9%B8%9F%E6%9D%AFweb/" title="菜鸟杯-Web">菜鸟杯-Web</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Neo</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

